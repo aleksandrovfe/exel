@@ -1,17 +1,17 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const isProd = process.env.NODE_ENV === "production"
+const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
 
-const fileName = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
+const fileName = (ext) => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
 const jsLoaders = () => {
     const loaders = [
         {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
             },
@@ -26,11 +26,11 @@ const jsLoaders = () => {
 }
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    mode: "development",
-    entry: ['@babel/polyfill', "./index.js"],
+    mode: 'development',
+    entry: ['@babel/polyfill', './index.js'],
     output: {
         filename: fileName('js'),
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, 'dist')
     },
     resolve: {
         extensions: ['.js'],
@@ -47,7 +47,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: "index.html",
+            template: 'index.html',
             minify: {
                 removeComments: isProd,
                 collapseWhitespace: isProd,
@@ -57,7 +57,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src/favicon.ico'),
-                    to: path.resolve(__dirname, "dist"),
+                    to: path.resolve(__dirname, 'dist'),
                 },
             ],
         }),
