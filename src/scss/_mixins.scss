@@ -1,0 +1,22 @@
+@mixin button ($color: green, $marginLeft: 0) {
+  cursor: pointer;
+  transition: 0.1s;
+  padding: 10px;
+  text-align: center;
+  user-select: none;
+  margin-left: $marginLeft;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+
+  &:active {
+    color: $color;
+  }
+}
+
+@mixin clear-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
