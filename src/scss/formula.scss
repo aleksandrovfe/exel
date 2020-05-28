@@ -4,11 +4,10 @@
 .excel__formula  {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
   border-bottom: 1px solid $border-color;
 
   &-info {
-    padding: 5px;
+    padding: 9px;
     font-size: 20px;
     font-style: italic;
   }
@@ -18,6 +17,6 @@
     padding: 15px 10px;
     outline: none;
     transition: 0.3s;
-    border: 1px solid $border-color;
+    border-left: 1px solid $border-color;
   }
 }
